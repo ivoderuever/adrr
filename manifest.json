@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Adrr",
+  "version": "0.0.1",
+  "description": "An extension to set address data with one click",
+  "action": {
+    "default_popup": "ui.html"
+  },
+  "host_permissions": [
+    "https://*.custtom.com/*",
+    "https://*.custtom.nl/*",
+    "https://*.custtom.de/*",
+    "https://*.custtom.fr/*",
+    "https://*.custtom.co.uk/*",
+    "https://*.custtom.ie/*"
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ]
+}
