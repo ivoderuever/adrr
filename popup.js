@@ -1,4 +1,4 @@
-import pastes from './pastes.json' assert { type: 'json' };
+import pastes from './pastes.js'
 const extBtn = document.querySelector('#setName');
 
 extBtn.addEventListener('click', function() {
