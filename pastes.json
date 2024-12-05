@@ -1,0 +1,12 @@
+{
+  "NL": {
+    "invoice_first_name": "Bob",
+    "invoice_pre_name": "de",
+    "invoice_last_name": "Bakker"
+  },
+  "BE": {
+    "invoice_first_name": "Bob",
+    "invoice_pre_name": "de",
+    "invoice_last_name": "Bakker"
+  }
+}

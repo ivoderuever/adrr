@@ -1,12 +1,15 @@
+import pastes from './pastes.json' assert { type: 'json' };
 const extBtn = document.querySelector('#setName');
 
 extBtn.addEventListener('click', function() {
-    // Address data (hardcoded for this example)
-    const addressData = {
-        firstName: "John",
-        prefixName: "",
-        lastName: "Doe"
-    };
+    // Example: Dynamically determine the dataset based on user choice (e.g., a dropdown or button)
+    const selectedDataset = "NL"; // Replace with logic to get user-selected dataset
+    const addressData = pastes[selectedDataset];
+
+    if (!addressData) {
+        alert("Selected dataset not found!");
+        return;
+    }
 
     chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
         const activeTab = tabs[0];
@@ -16,16 +19,15 @@ extBtn.addEventListener('click', function() {
             chrome.scripting.executeScript({
                 target: { tabId: activeTab.id },
                 func: (data) => {
-                    // Fill in the form on the target page
-                    const firstNameField = document.querySelector('input[name="invoice_first_name"]');
-                    const prefixNameField = document.querySelector('input[name="invoice_pre_name"]');
-                    const lastNameField = document.querySelector('input[name="invoice_last_name"]');
-
-                    if (firstNameField) firstNameField.value = data.firstName;
-                    if (prefixNameField) prefixNameField.value = data.prefixName;
-                    if (lastNameField) lastNameField.value = data.lastName;
+                    // Fill in the form on the target page using dynamic keys
+                    Object.entries(data).forEach(([key, value]) => {
+                        const inputField = document.querySelector(`input[name="${key}"]`);
+                        if (inputField) {
+                            inputField.value = value;
+                        }
+                    });
                 },
-                args: [addressData], // Pass addressData to the injected script
+                args: [addressData], // Pass the selected dataset to the injected script
             });
         } else {
             // Show an error if the URL doesn't match
