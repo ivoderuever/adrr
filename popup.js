@@ -21,9 +21,10 @@ extBtn.addEventListener('click', function() {
                 func: (data) => {
                     // Fill in the form on the target page using dynamic keys
                     Object.entries(data).forEach(([key, value]) => {
-                        console.log(key)
-                        if (key === 'event') {
-                            document.querySelector(value.target).click();
+                        if (key === 'events') {
+                            value.forEach(event => {
+                                document.querySelector(event.target).click();
+                            });
                         } else {
                             const inputField = document.querySelector(`input[name="${key}"]`);
                             if (inputField) {
