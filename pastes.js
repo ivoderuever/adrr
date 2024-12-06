@@ -3,7 +3,7 @@ const pastes = {
   NL: {
     event: {
       type: "click",
-      target: "[for='invoice_sir']",
+      target: "label[for='invoice_sir']",
     },
     invoice_first_name: "Bob",
     invoice_pre_name: "de",
@@ -21,6 +21,10 @@ const pastes = {
     telephone: "0612345678",
   },
   BE: {
+    event: {
+      type: "click",
+      target: "label[for='invoice_sir']",
+    },
     invoice_first_name: "Jan",
     invoice_pre_name: "van",
     invoice_last_name: "Dijk",
