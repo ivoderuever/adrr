@@ -1,6 +1,12 @@
-# adrr
-**The chrome extension to auto fill addresses on certain sites in multiple languages.**
+# Adrr
+**A Chrome extension to auto-fill addresses on specific websites in multiple languages.**
 
+## Chrome Installation
 
-## Chrome instalation
-You go to ``chrome://extensions/`` There you enable developer mode in the top right corner. You extract the zip with the 2 files somewhere you can find it. After that you click in the top left a button called "Load unpacked" and select the folder. And it should be added and working.
+1. Open Chrome and go to `chrome://extensions/`.
+2. Enable **Developer mode** in the top-right corner.
+3. Extract the ZIP file containing the extension files to a folder you can easily find.
+4. Click the **"Load unpacked"** button in the top-left corner of the page.
+5. Select the extracted folder.
+
+Your extension should now be added and ready to use!
