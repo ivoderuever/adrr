@@ -63,7 +63,10 @@ function generateLocaleButtons(tld, allowedLangs) {
 // Extract TLD from active tab's URL and update the popup
 chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     const activeTab = tabs[0];
-    const tldMatch = activeTab.url.match(/https:\/\/.*\.custtom\.([a-z]{2,3})\//);
+    
+    // Match the domain's TLD including multi-part TLDs like .co.uk
+    const tldMatch = activeTab.url.match(/https:\/\/.*\.custtom\.(.+?)\//);
+    
     if (tldMatch) {
         const tld = tldMatch[1];
         const tldElement = document.querySelector('#locale');
@@ -75,9 +78,9 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
             // Generate buttons for allowed languages
             generateLocaleButtons(tld, domain.lang);
         } else {
-            setMessage("No languages are configured for this domain")
+            setMessage("No languages are configured for this domain");
         }
     } else {
-        setMessage("This domain is not supported by this extension")
+        setMessage("This domain is not supported by this extension");
     }
 });
