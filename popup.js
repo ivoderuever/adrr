@@ -15,7 +15,7 @@ function generateLocaleButtons(tld, allowedLangs) {
         const button = document.createElement('button');
         button.textContent = `Set ${lang}`;
         button.id = `set-${lang}`;
-        button.class = 'btn';
+        button.className = 'btn';
         button.dataset.lang = lang;
         container.appendChild(button);
 
