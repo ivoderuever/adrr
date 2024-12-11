@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Adrr",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "An extension to set address data with one click",
   "icons": {
     "16": "icon/logo-16.png",
